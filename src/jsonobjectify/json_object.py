@@ -3,6 +3,7 @@ from json import dumps
 
 class JsonObject:
     """Represent a JSON object as a Python object."""
+
     def __init__(self, info):
         self._info = info
 
