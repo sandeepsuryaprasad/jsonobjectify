@@ -31,7 +31,7 @@ pip install jsonobjectify
 
 Consider the following JSON data representing an employee and their department:
 
-```json
+```python
 response = """{
     "id": 1,
     "name": "Michael Anderson",
