@@ -68,16 +68,19 @@ print(employee.skills[1].level)
 **Output**
 
 ```text
-Alice
-Engineering
-Bengaluru
+'Michael Anderson'
+'Austin'
+'Python'
+'Advanced'
 ```
 
-The example above illustrates the intended API. Adjust the import and construction methods to match the implementation in your repository.
+The example above illustrates the intended API. Adjust the import and construction methods 
+to match the implementation in your repository.
 
 ## Converting Objects Back to JSON
 
-`jsonobjectify` is intended to support conversion back to standard Python dictionaries and JSON strings, making it convenient to work with transformed data.
+`jsonobjectify` is intended to support conversion back to standard Python dictionaries and 
+JSON strings, making it convenient to work with transformed data.
 
 ```python
 # Convert the object to a Python dictionary
@@ -93,7 +96,8 @@ json_data = employee.to_json()
 
 ## Contributing
 
-Contributions, bug reports, and feature suggestions are welcome. Please open an issue to discuss a proposed change before submitting a pull request.
+Contributions, bug reports, and feature suggestions are welcome. Please open an issue to 
+discuss a proposed change before submitting a pull request.
 
 ## License
 
