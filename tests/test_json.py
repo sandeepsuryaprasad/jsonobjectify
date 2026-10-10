@@ -21,11 +21,8 @@ def test_response_from_json_file(response_from_json_file):
     assert json.skills[-1].level == "Intermediate"
 
 def test_empty_list():
-    ...
+    assert len(JsonPath.from_json_string("[]")) == 0
 
 def test_empty_json_object():
-    ...
-
-def test_empty_response():
-    ...
+    assert len(JsonPath.from_json_string("{}")) == 0
 
