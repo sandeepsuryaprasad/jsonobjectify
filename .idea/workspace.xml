@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f848b53f-258e-42a5-9920-2bda2047f417" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jsonobjectify/json_object.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsonobjectify/json_object.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jsonobjectify/json_path.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsonobjectify/json_path.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
