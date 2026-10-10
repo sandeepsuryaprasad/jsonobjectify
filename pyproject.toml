@@ -11,6 +11,7 @@ authors = [
 
 [tool.uv.build-backend]
 module-root = "src"
+module-name = "jsonobjectify"
 
 classifiers = [
     "Development Status :: 4 - Beta",
