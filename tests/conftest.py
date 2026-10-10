@@ -1,4 +1,3 @@
-from json import load, loads
 from pytest import fixture
 
 
@@ -26,4 +25,4 @@ def response_from_json_string():
 
 @fixture
 def response_from_json_file():
-    return "./tests/demo.json"
+    return "./tests/json_file.json"

@@ -19,3 +19,13 @@ def test_response_from_json_file(response_from_json_file):
     assert isinstance(json.skills[0], JsonObject) == True
     assert json.skills[0].name == "Python"
     assert json.skills[-1].level == "Intermediate"
+
+def test_empty_list():
+    ...
+
+def test_empty_json_object():
+    ...
+
+def test_empty_response():
+    ...
+
