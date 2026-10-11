@@ -10,7 +10,7 @@ readme = "README.md"
 requires-python = ">=3.12"
 license = "MIT"
 license-files = ["LICENSE"]
-keywords =["json-parsing", "dot notation", "automated-json-parsing"]
+keywords =["json-parsing", "Attribute lookup", "automated-json-parsing"]
 authors = [
     {name= "Sandeep Suryaprasad"}
 ]
