@@ -1,6 +1,6 @@
 from json import load, loads
 from pathlib import Path
-from re import sub
+
 
 from .json_object import JsonObject
 
