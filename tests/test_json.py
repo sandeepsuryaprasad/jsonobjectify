@@ -19,16 +19,16 @@ def test_nested_json_object():
     }
     """
     json = JsonPath.from_json_string(response)
-    json.k1.n1 == "v1"
-    json.k2.n2.n3 == "v2"
+    assert json.k1.n1 == "v1"
+    assert json.k2.n2.n3 == "v2"
 
 
 def test_json_array():
     response = "[1, 2, 3]"
     json = JsonPath.from_json_string(response)
-    json[0] == "1"
-    json[1] == "2"
-    json[2] == "3"
+    assert json[0] == 1
+    assert json[1] == 2
+    assert json[2] == 3
 
 
 def test_list_json_objects():
