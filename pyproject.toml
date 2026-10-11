@@ -9,7 +9,7 @@ description = "A lightweight Python library for converting JSON data into Python
 readme = "README.md"
 requires-python = ">=3.12"
 license = "MIT"
-license-files = ["LICENSE.txt"]
+license-files = ["LICENSE"]
 keywords =["json-parsing", "dot notation", "automated-json-parsing"]
 authors = [
     {name= "Sandeep Suryaprasad"}
