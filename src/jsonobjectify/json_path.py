@@ -10,7 +10,14 @@ class JsonPath:
         self._root_json_object = None
 
     def __getattr__(self, name):
-        """Delegate attribute access to the json object."""
+        """Delegate attribute access to the root JSON object.
+
+        Raises:
+            AttributeError: If the requested attribute is 'value' or does not
+            exist on the root JSON object.
+        """
+        if name == "value":
+            raise AttributeError("'value' attribute is available only for scalar values")
         return getattr(self._root_json_object, name)
 
     def __getitem__(self, index):
@@ -24,17 +31,34 @@ class JsonPath:
         return len(self._root_json_object)
 
     def __setattr__(self, name, value):
+        """Set an attribute on the root JSON object.
+
+        Delegates attribute assignment to the root JSON object, except for
+        `_root_json_object`, which is assigned directly.
+        """
         if name == "_root_json_object":
             super().__setattr__(name, value)
         else:
             setattr(self._root_json_object, name, value)
 
     def __str__(self):
+        """Return the string representation of the root JSON value.
+
+        Serializes a root `JsonObject` as a JSON string. For scalar values,
+        returns their standard Python string representation without JSON
+        quoting or formatting.
+        """
         if isinstance(self._root_json_object, JsonObject):
             return self._root_json_object.to_json()
         return f"{self._root_json_object}"
 
     def __repr__(self):
+        """Return an unambiguous string representation of the instance.
+
+        Includes the class name and root JSON value. Converts a `JsonObject`
+        to a Python dictionary; scalar values use their standard Python
+        representation.
+        """
         if isinstance(self._root_json_object, JsonObject):
             return f"{type(self).__name__}({self._root_json_object.to_dict()})"
         return f"{type(self).__name__}({self._root_json_object})"
@@ -89,6 +113,11 @@ class JsonPath:
 
     @classmethod
     def _from_py_object(cls, py_object):
+        """Create a `JsonPath` instance from a Python object.
+
+        Builds the root JSON structure from the supplied Python object and
+        returns the initialized instance.
+        """
         obj = cls()
         obj._root_json_object = obj._build_root_object(py_object)
         return obj
