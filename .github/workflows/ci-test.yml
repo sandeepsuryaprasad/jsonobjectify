@@ -1,0 +1,59 @@
+name: CI
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+    linting:
+      name: static-code-analysis
+      runs-on: ["ubuntu-latest"]
+      env:
+        UV_PYTHON: "3.12"
+      steps:
+        - name: Checkout latest version from GIT
+          uses: actions/checkout@v4
+
+        - name: install uv
+          uses: astral-sh/setup-uv@v7
+          with:
+            enable-cache: true
+            version: "0.9.13"
+
+        - name: install python
+          run: uv python install ${{env.UV_PYTHON}}
+
+        - name: Install linting dependency
+          run: uv sync --only-group lint
+
+        - name: Run Ruff
+          run: uv run ruff check . --show-fixes
+
+    run-tests:
+      name: Running Tests on ${{ matrix.os }} (Python ${{ matrix.python-version }})
+      runs-on: ${{matrix.os}}
+      strategy:
+        fail-fast: false
+        matrix:
+            os: [ubuntu-latest, macos-latest]
+            python-version: ["3.10", "3.11", "3.12", "3.13", "3.14"]
+      steps:
+        - name: Checkout latest version from GIT
+          uses: actions/checkout@v4
+
+        - name: install uv
+          uses: astral-sh/setup-uv@v7
+          with:
+            enable-cache: true
+            version: "0.9.13"
+
+        - name: install python ${{matrix.python-version}}
+          run: uv python install ${{matrix.python-version}}
+
+        - name: Install test dependency
+          run: uv sync --only-group test
+
+        - name: Run tests
+          run: uv run pytest -vs
