@@ -7,7 +7,7 @@ def test_json_object():
     "k2": "v2"
     }
     """
-    json = JsonPath.from_json_string(response)
+    json = JsonPath.from_string(response)
     assert json.k1 == "v1"
     assert json.k2 == "v2"
 
@@ -17,13 +17,13 @@ def test_nested_json_object():
         "k2": {"n2": {"n3": "v2"}}
     }
     """
-    json = JsonPath.from_json_string(response)
+    json = JsonPath.from_string(response)
     assert json.k1.n1 == "v1"
     assert json.k2.n2.n3 == "v2"
 
 def test_json_array():
     response = "[1, 2, 3]"
-    json = JsonPath.from_json_string(response)
+    json = JsonPath.from_string(response)
     assert json[0] == 1
     assert json[1] == 2
     assert json[2] == 3
@@ -34,18 +34,18 @@ def test_list_json_objects():
         {"k2": "v2"}
     ]
     """
-    json = JsonPath.from_json_string(response)
+    json = JsonPath.from_string(response)
     assert json[0].k1 == "v1"
     assert json[1].k2 == "v2"
 
 def test_empty_json_array():
-    assert len(JsonPath.from_json_string("[]")) == 0
+    assert len(JsonPath.from_string("[]")) == 0
 
 def test_empty_json_object():
-    assert len(JsonPath.from_json_string("{}")) == 0
+    assert len(JsonPath.from_string("{}")) == 0
 
 def test_response_from_file():
-    json = JsonPath.from_json_file("./tests/json_file.json")
+    json = JsonPath.from_file("./tests/json_file.json")
     assert json[0].k1 == "v1"
     assert json[0].k2 == "v2"
     assert json[1].k3 == "v3"
@@ -53,16 +53,29 @@ def test_response_from_file():
 
 def test_json_null():
     response = '{"k1": null}'
-    json = JsonPath.from_json_string(response)
+    json = JsonPath.from_string(response)
     assert json.k1 is None
 
 def test_json_bool():
     response = '{"is_active": true, "is_admin": false}'
-    json = JsonPath.from_json_string(response)
+    json = JsonPath.from_string(response)
     assert json.is_active is True
     assert json.is_admin is False
 
 def test_scalar_values():
     response = "26"
-    json = JsonPath.from_json_string(response)
+    json = JsonPath.from_string(response)
     assert json.value == 26
+
+def test_key_normalization():
+    response = """{
+        "user-name": "John Doe",
+        "first name": "John",
+        "city": "Austin",
+        "email.id": "john.doe@example.com"
+    }"""
+    json = JsonPath.from_string(response)
+    assert json.user_name == "John Doe"
+    assert json.first_name == "John"
+    assert json.city == "Austin"
+    assert json.email_id == "john.doe@example.com"

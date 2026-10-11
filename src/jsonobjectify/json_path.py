@@ -10,6 +10,17 @@ class JsonPath:
         """Initialize an empty JSON parser."""
         self._root_json_object = None
 
+    def _normalize_key(self, key: str) -> str:
+        """Normalize a JSON key for Python attribute access."""
+        return sub(r"[-\s\.]+", "_", key)
+
+    def __getattr__(self, name):
+        """Return a value from the underlying JSON data using dot notation."""
+        for key, value in self._info.items():
+            if self._normalize_key(key) == name:
+                return value
+        raise AttributeError(f"{type(self).__name__} has no attribute {name!r}") from None
+
     def __getattr__(self, name):
         """Delegate attribute access to the root JSON object.
 
@@ -68,10 +79,6 @@ class JsonPath:
         """Wrap a dictionary in a JsonObject."""
         return JsonObject(data)
 
-    def _normalize_key(self, key: str) -> str:
-        """Normalize a JSON key for Python attribute access."""
-        return sub(r"[-\s.]+", "_", key)
-
     def _process_list(self, data: list):
         """Recursively process items in a list."""
         return [self._process_object(item) for item in data]
@@ -79,7 +86,7 @@ class JsonPath:
     def _process_dict(self, data: dict):
         """Recursively process values in a dictionary."""
         _data = {
-            self._normalize_key(key): self._process_object(value)
+            key: self._process_object(value)
             for key, value in data.items()
         }
         return self._wrap_dict(_data)
@@ -119,7 +126,7 @@ class JsonPath:
         return obj
 
     @classmethod
-    def from_json_string(cls, json_string):
+    def from_string(cls, json_string):
         """Create a JsonPath instance from a JSON string."""
         if not isinstance(json_string, str):
             raise TypeError("json_string must be a string")
@@ -128,7 +135,7 @@ class JsonPath:
         return cls._from_py_object(loads(json_string))
 
     @classmethod
-    def from_json_file(cls, filename: str):
+    def from_file(cls, filename: str):
         """Create a JsonPath instance from a JSON file."""
         path = Path(filename)
         if not path.is_file():
