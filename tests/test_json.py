@@ -68,3 +68,8 @@ def test_json_bool():
     assert json.is_active is True
     assert json.is_admin is False
 
+def test_scalar_values():
+    response = "10"
+    json = JsonPath.from_json_string(response)
+    assert json.value == 10
+

@@ -76,6 +76,12 @@ class JsonPath:
         """Build the root object from the deserialized JSON."""
         return self._process_object(py_object)
 
+    @property
+    def value(self):
+        if isinstance(self._root_json_object, (JsonObject, list)):
+            raise AttributeError("'value' attribute is available only for scalar values")
+        return self._root_json_object
+
     @classmethod
     def _from_py_object(cls, py_object):
         obj = cls()
