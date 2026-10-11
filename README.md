@@ -1,5 +1,7 @@
 # jsonobjectify
 
+[![CI](https://github.com/sandeepsuryaprasad/jsonobjectify/actions/workflows/ci-test.yml/badge.svg?branch=main)](https://github.com/sandeepsuryaprasad/jsonobjectify/actions/workflows/ci-test.yml)  [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
+
 A lightweight Python library for converting JSON data into Python objects, 
 simplifying access to nested structures through intuitive dot notation.
 
