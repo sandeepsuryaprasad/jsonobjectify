@@ -10,17 +10,6 @@ class JsonPath:
         """Initialize an empty JSON parser."""
         self._root_json_object = None
 
-    def _normalize_key(self, key: str) -> str:
-        """Normalize a JSON key for Python attribute access."""
-        return sub(r"[-\s\.]+", "_", key)
-
-    def __getattr__(self, name):
-        """Return a value from the underlying JSON data using dot notation."""
-        for key, value in self._info.items():
-            if self._normalize_key(key) == name:
-                return value
-        raise AttributeError(f"{type(self).__name__} has no attribute {name!r}") from None
-
     def __getattr__(self, name):
         """Delegate attribute access to the root JSON object.
 
