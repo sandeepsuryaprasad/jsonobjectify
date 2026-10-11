@@ -78,6 +78,11 @@ class JsonPath:
 
     @property
     def value(self):
+        """Return the root value if the JSON response is a scalar.
+        
+        Raises:
+            AttributeError: If the root JSON response is an object or array.
+        """
         if isinstance(self._root_json_object, (JsonObject, list)):
             raise AttributeError("'value' attribute is available only for scalar values")
         return self._root_json_object
