@@ -56,3 +56,10 @@ def test_empty_list():
 def test_empty_json_object():
     assert len(JsonPath.from_json_string("{}")) == 0
 
+def test_response_from_file():
+    json = JsonPath.from_json_file("./tests/json_file.json")
+    assert json[0].k1 == "v1"
+    assert json[0].k2 == "v2"
+    assert json[1].k3 == "v3"
+    assert json[1].k4 == "v4"
+
