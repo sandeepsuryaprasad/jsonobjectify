@@ -1,5 +1,6 @@
 from json import load, loads
 from pathlib import Path
+from re import sub
 
 from .json_object import JsonObject
 
@@ -67,13 +68,9 @@ class JsonPath:
         """Wrap a dictionary in a JsonObject."""
         return JsonObject(data)
 
-    def _is_valid_json_key(self, key):
-        """Check whether a JSON key can be used as a Python attribute."""
-        if key.isidentifier():
-            return True
-        else:
-            print(f"Skipping invalid JSON key {key!r}")
-            return False
+    def _normalize_key(self, key: str) -> str:
+        """Normalize a JSON key for Python attribute access."""
+        return sub(r"[-\s.]+", "_", key)
 
     def _process_list(self, data: list):
         """Recursively process items in a list."""
@@ -82,9 +79,8 @@ class JsonPath:
     def _process_dict(self, data: dict):
         """Recursively process values in a dictionary."""
         _data = {
-            key: self._process_object(value)
+            self._normalize_key(key): self._process_object(value)
             for key, value in data.items()
-            if self._is_valid_json_key(key)
         }
         return self._wrap_dict(_data)
 
