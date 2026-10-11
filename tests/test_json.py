@@ -50,16 +50,21 @@ def test_empty_json_object():
     assert len(JsonPath.from_json_string("{}")) == 0
 
 
-def test_empty_list():
-    assert len(JsonPath.from_json_string("[]")) == 0
-
-def test_empty_json_object():
-    assert len(JsonPath.from_json_string("{}")) == 0
-
 def test_response_from_file():
     json = JsonPath.from_json_file("./tests/json_file.json")
     assert json[0].k1 == "v1"
     assert json[0].k2 == "v2"
     assert json[1].k3 == "v3"
     assert json[1].k4 == "v4"
+
+def test_json_null():
+    response = '{"k1": null}'
+    json = JsonPath.from_json_string(response)
+    assert json.k1 is None
+
+def test_json_bool():
+    response = '{"is_active": true, "is_admin": false}'
+    json = JsonPath.from_json_string(response)
+    assert json.is_active is True
+    assert json.is_admin is False
 
