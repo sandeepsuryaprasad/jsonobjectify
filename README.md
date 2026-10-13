@@ -37,27 +37,17 @@ response = """{
 ```
 
 ```python
->>> from jsonobjectify import JsonPath
->>>
 >>> employee = JsonPath.from_string(response)
->>>
 >>> employee.name
->>> employee.address.city
->>> employee.skills[0].name
->>> employee.skills[1].level
-```
-
-**Output**
-
-```text
 'Michael Anderson'
+>>> employee.address.city
 'Austin'
+>>> employee.skills[0].name
 'Python'
+>>> employee.skills[1].level
 'Advanced'
+>>> 
 ```
-
-The example above illustrates the intended API. Adjust the import and construction methods 
-to match the implementation in your repository.
 
 ## Converting Objects Back to JSON
 
@@ -74,7 +64,7 @@ json_data = employee.to_json()
 
 ## Requirements
 
-* Python 3.9 or later
+* Python 3.12 or later
 
 ## Contributing
 
