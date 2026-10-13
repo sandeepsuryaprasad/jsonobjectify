@@ -46,9 +46,17 @@ response = """{
 'Python'
 >>> employee.skills[1].level
 'Advanced'
+>>>
+```
+```python
+>>> for skill in employee.skills:
+...     print(f"{skill.name}, {skill.level}")
+...     
+Python, Advanced
+C, Advanced
+C++, Intermediate
 >>> 
 ```
-
 ## Converting Objects Back to JSON
 
 `jsonobjectify` is intended to support conversion back to standard Python dictionaries and 
