@@ -3,37 +3,20 @@
 [![CI](https://github.com/sandeepsuryaprasad/jsonobjectify/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/sandeepsuryaprasad/jsonobjectify/actions/workflows/ci-test.yml)  [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 
 A lightweight Python library for converting JSON data into Python objects, 
-simplifying access to nested structures through intuitive dot notation.
-
-## Overview
-Working with complex JSON data often involves repetitive dictionary lookups, especially 
-when accessing deeply nested structures. `jsonobjectify` simplifies this process by 
-converting JSON data into Python objects, allowing you to access JSON properties using 
-familiar attribute notation.
-
-Instead of writing chained dictionary lookups, you can navigate nested JSON structures 
-using a clean, readable, object-oriented interface.
-
-## Features
-
-* **Dot-notation access:** Access JSON properties using Python attributes.
-* **Nested object support:** Navigate deeply nested JSON structures naturally.
-* **List support:** Work with collections of JSON objects.
-* **Dictionary conversion:** Convert mapped objects back into standard Python dictionaries.
-* **JSON serialization:** Serialize objects back into JSON.
-* **Simple API:** Keep your code readable when working with complex JSON responses.
+simplifying access to nested structures through dot notation. Instead of writing chained 
+dictionary lookups, you can navigate nested JSON structures using a clean, readable, 
+object-oriented interface.
 
 ## Installation
 
-```bash
+```commandline
 pip install jsonobjectify
 ```
 
 ## Usage
-
 Consider the following JSON data representing an employee and their department:
 
-```python
+```json lines
 response = """{
     "id": 1,
     "name": "Michael Anderson",
@@ -53,18 +36,15 @@ response = """{
 }"""
 ```
 
-With `jsonobjectify`, you can access the data through object attributes rather than 
-repeated dictionary lookups.
-
 ```python
-from jsonobjectify import JsonPath
-
-employee = JsonPath.from_json_string(response)
-
-print(employee.name)
-print(employee.address.city)
-print(employee.skills[0].name)
-print(employee.skills[1].level)
+>>> from jsonobjectify import JsonPath
+>>>
+>>> employee = JsonPath.from_string(response)
+>>>
+>>> employee.name
+>>> employee.address.city
+>>> employee.skills[0].name
+>>> employee.skills[1].level
 ```
 
 **Output**
