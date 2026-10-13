@@ -1,4 +1,4 @@
-from jsonobjectify.json_path import JsonPath
+from jsonobjectify.jsonpath import JsonPath
 
 
 def test_json_object():
