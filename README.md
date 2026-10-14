@@ -61,7 +61,7 @@ For JSON arrays, use the standard Python indexing syntax.
 ```
 You can also iterate over JSON arrays using a standard Python for loop and access each 
 element's properties using dot notation.
-```python
+```console
 >>> for skill in employee.skills:
 ...     print(f"{skill.name}, {skill.level}")
 ...     
@@ -93,7 +93,7 @@ response = """[
   }
 ]"""
 ```
-```python
+```console
 >>> employees = JsonPath.from_string(response)
 >>> employees[0]
 <jsonobjectify.jsonobject.JsonObject object at 0x101bb7d50>
@@ -111,7 +111,7 @@ response = """[
 ```
 You can also iterate over JSON arrays using a standard Python for loop and access each 
 element's properties using dot notation.
-```python
+```console
 >>> for employee in employees:
 ...     print(f"{employee.name}, {employee.email}, {employee.website}")
 ...     
@@ -129,12 +129,13 @@ read and parse its contents manually.
 For example, consider an `employee.json` file containing the employee data shown in the 
 previous example.
 
-```python
+```console
 >>> employee = JsonPath.from_file("employee.json")
 ```
 Once the object is created, you can access nested properties and iterate over JSON arrays
 in the same way
-```python
+
+```console
 >>> employee.name
 'Michael Anderson'
 >>> employee.address.city
@@ -146,11 +147,12 @@ Python, Advanced
 C, Advanced
 C++, Intermediate
 ```
+
 ### Working with Scalar Values
 If the **root JSON** value is a scalar, such as a string, number, boolean or null, you can 
 access the underlying value using the `value` property.
 
-```python
+```console
 >>> data = JsonPath.from_string("26")
 >>> data.value
 26
