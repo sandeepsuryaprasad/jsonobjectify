@@ -21,8 +21,8 @@ Consider the following JSON data representing an employee and their department:
 ```python
 response = """{
     "id": 1,
-    "name": "Michael Anderson",
-    "email": "michael.anderson@example.com",
+    "name": "John Doe",
+    "email": "john.doe@example.com",
     "website": "www.example.dev",
     "address": {
       "city": "Austin",
@@ -48,7 +48,7 @@ You can now access and traverse nested JSON objects using **dot notation**.
 For JSON arrays, use the standard Python indexing syntax.
 ```python
 >>> employee.name
-'Michael Anderson'
+'John Doe'
 >>> employee.address.city
 'Austin'
 >>> employee.address.geo_location.lng
