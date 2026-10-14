@@ -16,7 +16,7 @@ pip install jsonobjectify
 ## Usage
 Consider the following JSON data representing an employee and their department:
 
-```json lines
+```python
 response = """{
     "id": 1,
     "name": "Michael Anderson",
@@ -49,6 +49,8 @@ For JSON arrays, use the standard Python indexing syntax.
 'Michael Anderson'
 >>> employee.address.city
 'Austin'
+>>> employee.address.geo_location.lng
+'-97.7431'
 >>> employee.skills[0].name
 'Python'
 >>> employee.skills[1].level
