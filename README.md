@@ -11,7 +11,7 @@ object-oriented interface.
 
 ## Installation
 
-```commandline
+```python
 pip install jsonobjectify
 ```
 
