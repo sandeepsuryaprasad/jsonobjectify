@@ -1,3 +1,5 @@
+from src.jsonobjectify.jsonpath import JsonPath
+
 # jsonobjectify
 
 [![CI](https://github.com/sandeepsuryaprasad/jsonobjectify/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/sandeepsuryaprasad/jsonobjectify/actions/workflows/ci-test.yml)  [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
@@ -68,6 +70,57 @@ C, Advanced
 C++, Intermediate
 >>> 
 ```
+### Root response is an array of JSON objects
+A JSON response can contain an array of objects at the root level. You can use 
+`JsonPath.from_string` to parse the response and access each object's properties using 
+dot notation.
+```python
+response = """[
+  {
+    "name": "Olivia Bennett",
+    "email": "olivia.bennett@example.com",
+    "website": "www.example.dev"
+  },
+  {
+    "name": "Ethan Parker",
+    "email": "ethan.parker@example.com",
+    "website": "www.example.io"
+  },
+  {
+    "name": "Sophia Turner",
+    "email": "sophia.turner@example.com",
+    "website": "www.example.edu"
+  }
+]"""
+```
+```python
+>>> employees = JsonPath.from_string(response)
+>>> employees[0]
+<jsonobjectify.jsonobject.JsonObject object at 0x101bb7d50>
+>>> employees[1]
+<jsonobjectify.jsonobject.JsonObject object at 0x101bb7b50>
+>>> employees[2]
+<jsonobjectify.jsonobject.JsonObject object at 0x101aa2120>
+>>> employees[0].name
+'Olivia Bennett'
+>>> employees[0].email
+'olivia.bennett@example.com'
+>>> employees[0].website
+'www.example.dev'
+>>> 
+```
+You can also iterate over JSON arrays using a standard Python for loop and access each 
+element's properties using dot notation.
+```python
+>>> for employee in employees:
+...     print(f"{employee.name}, {employee.email}, {employee.website}")
+...     
+Olivia Bennett, olivia.bennett@example.com, www.example.dev
+Ethan Parker, ethan.parker@example.com, www.example.io
+Sophia Turner, sophia.turner@example.com, www.example.edu
+>>> 
+```
+
 ### Create a `JsonPath` object from a JSON file
 You can also create a JsonPath object directly from a JSON file using the `from_file`
 class method. This allows you to work with JSON data stored in a file without having to 
@@ -112,7 +165,7 @@ True
 'hello world'
 ```
 
-## Converting Objects Back to JSON
+### Converting Objects Back to JSON
 
 `jsonobjectify` is intended to support conversion back to standard Python dictionaries and 
 JSON strings, making it convenient to work with transformed data.
@@ -125,13 +178,13 @@ data = employee.to_dict()
 json_data = employee.to_json()
 ```
 
-## Requirements
+### Requirements
 * Python 3.12 or later
 
-## Contributing
+### Contributing
 Contributions, bug reports, and feature suggestions are welcome. Please open an issue to 
 discuss a proposed change before submitting a pull request.
 
-## License
+### License
 
 This package is distributed under the terms of [MIT](https://github.com/sandeepsuryaprasad/jsonobjectify/blob/main/LICENSE) license
