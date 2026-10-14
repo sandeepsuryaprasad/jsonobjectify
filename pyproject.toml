@@ -21,8 +21,7 @@ module-root = "src"
 module-name = "jsonobjectify"
 
 classifiers = [
-    "Development Status :: 4 - Beta",
-    "Intended Audience :: Developers, Quality Assurance, Automated Testing",
+    "Development Status :: 3 - Alpha",
     "Topic :: Software Development :: Libraries :: Python Modules",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
@@ -35,8 +34,8 @@ Repository = "https://github.com/sandeepsuryaprasad/jsonobjectify"
 Issues = "https://github.com/sandeepsuryaprasad/jsonobjectify/issues"
 
 [dependency-groups]
-test = ["pytest==8.2.2"]
-lint = ["ruff==0.11.12"]
+test = ["pytest>=8.0.0"]
+lint = ["ruff>=0.14.0"]
 
 [tool.ruff]
 line-length = 119
@@ -105,4 +104,4 @@ ignore = [
 convention = "google"
 
 [tool.pytest.ini_options]
-testpaths = ["./tests"]
+testpaths = ["tests"]
