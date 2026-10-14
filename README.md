@@ -66,7 +66,7 @@ C, Advanced
 C++, Intermediate
 >>> 
 ```
-### Create a JsonPath object from a JSON file
+### Create a `JsonPath` object from a JSON file
 You can also create a JsonPath object directly from a JSON file using the `from_file`
 class method. This allows you to work with JSON data stored in a file without having to 
 read and parse its contents manually.
@@ -91,6 +91,22 @@ Python, Advanced
 C, Advanced
 C++, Intermediate
 ```
+### Working with Scalar Values
+If the **root JSON** value is a scalar, such as a string, number, boolean or null, you can 
+access the underlying value using the `value` property.
+
+```python
+>>> data = JsonPath.from_string("26")
+>>> data.value
+26
+>>> data = JsonPath.from_string("true")
+>>> data.value
+True
+>>> data = JsonPath.from_string("null")
+>>> data.value
+>>>
+```
+
 ## Converting Objects Back to JSON
 
 `jsonobjectify` is intended to support conversion back to standard Python dictionaries and 
