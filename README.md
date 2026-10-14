@@ -105,6 +105,9 @@ True
 >>> data = JsonPath.from_string("null")
 >>> data.value
 >>>
+>>> json = JsonPath.from_string('"hello world"')
+>>> json.value
+'hello world'
 ```
 
 ## Converting Objects Back to JSON
