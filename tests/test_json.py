@@ -66,6 +66,18 @@ def test_scalar_values():
     response = "26"
     json = JsonPath.from_string(response)
     assert json.value == 26
+    response = "true"
+    json = JsonPath.from_string(response)
+    assert json.value is True
+    response = "false"
+    json = JsonPath.from_string(response)
+    assert json.value is False
+    response = "null"
+    json = JsonPath.from_string(response)
+    assert json.value is None
+    response = '"hello world"'
+    json = JsonPath.from_string(response)
+    assert json.value == "hello world"
 
 def test_key_normalization():
     response = """{
