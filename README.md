@@ -166,6 +166,33 @@ True
 >>> json.value
 'hello world'
 ```
+### Accessing JSON Properties with Normalized Keys
+JSON property names may contain hyphens, spaces, or periods, which cannot be used directly 
+in Python attribute names. jsonobjectify normalizes these characters to underscores, 
+allowing you to access such properties using dot notation.
+
+```python
+response = """{
+  "first-name": "Olivia",
+  "job title": "Software Engineer",
+  "contact.email": "olivia@example.com"
+}"""
+```
+```console
+>>> employee = JsonPath.from_string(response)
+```
+You can access these properties using normalized attribute names,
+
+```console
+>>> employee.first_name
+'Olivia'
+>>> employee.job_title
+'Software Engineer'
+>>> employee.contact_email
+'olivia@example.com'
+```
+**The original JSON property names are preserved when converting the object back to 
+a dictionary or JSON string.**
 
 ### Converting Objects Back to JSON
 
