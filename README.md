@@ -35,9 +35,16 @@ response = """{
     ]
 }"""
 ```
-
+### Create `JsonPath` object from JSON string.
+Here, response is a string containing valid JSON. The `from_string` class method parses 
+the JSON data and creates a `JsonPath` object that allows you to access properties using 
+dot notation.
 ```python
 >>> employee = JsonPath.from_string(response)
+```
+You can now access and traverse nested JSON objects using **dot notation**. 
+For JSON arrays, use the standard Python indexing syntax.
+```python
 >>> employee.name
 'Michael Anderson'
 >>> employee.address.city
@@ -48,6 +55,8 @@ response = """{
 'Advanced'
 >>>
 ```
+You can also iterate over JSON arrays using a standard Python for loop and access each 
+element's properties using dot notation.
 ```python
 >>> for skill in employee.skills:
 ...     print(f"{skill.name}, {skill.level}")
@@ -56,6 +65,31 @@ Python, Advanced
 C, Advanced
 C++, Intermediate
 >>> 
+```
+### Create a JsonPath object from a JSON file
+You can also create a JsonPath object directly from a JSON file using the `from_file`
+class method. This allows you to work with JSON data stored in a file without having to 
+read and parse its contents manually.
+
+For example, consider an `employee.json` file containing the employee data shown in the 
+previous example.
+
+```python
+>>> employee = JsonPath.from_file("employee.json")
+```
+Once the object is created, you can access nested properties and iterate over JSON arrays
+in the same way
+```python
+>>> employee.name
+'Michael Anderson'
+>>> employee.address.city
+'Austin'
+>>> for skill in employee.skills:
+...     print(f"{skill.name}, {skill.level}")
+...
+Python, Advanced
+C, Advanced
+C++, Intermediate
 ```
 ## Converting Objects Back to JSON
 
@@ -71,11 +105,9 @@ json_data = employee.to_json()
 ```
 
 ## Requirements
-
 * Python 3.12 or later
 
 ## Contributing
-
 Contributions, bug reports, and feature suggestions are welcome. Please open an issue to 
 discuss a proposed change before submitting a pull request.
 
