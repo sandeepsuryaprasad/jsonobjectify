@@ -31,7 +31,7 @@ class JsonObject:
             original_key = self._normalized_keys.get(name)
             if original_key is None:
                 original_key = name
-                self._normalized_keys[name] = original_key
+                self._normalized_keys[self._normalize_key(name)] = original_key
             self._info[original_key] = value
 
     def to_dict(self):
