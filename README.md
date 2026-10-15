@@ -1,7 +1,7 @@
 # jsonobjectify
 
 [![Development Status](https://img.shields.io/pypi/status/jsonobjectify)](https://pypi.org/project/jsonobjectify/)
-[![PyPI version](https://img.shields.io/pypi/v/jsonobjectify?lable=PyPI)](https://pypi.org/project/jsonobjectify/)
+[![PyPI version](https://img.shields.io/pypi/v/jsonobjectify?label=PyPI)](https://pypi.org/project/jsonobjectify/)
 [![Python versions](https://img.shields.io/pypi/pyversions/jsonobjectify?label=Python)](https://pypi.org/project/jsonobjectify/)
 
 [![CI](https://github.com/sandeepsuryaprasad/jsonobjectify/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/sandeepsuryaprasad/jsonobjectify/actions/workflows/ci.yml)
