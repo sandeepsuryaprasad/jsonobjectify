@@ -1,5 +1,5 @@
 from json import dumps
-from re import sub
+from re import sub, search
 
 
 class JsonObject:
@@ -7,24 +7,32 @@ class JsonObject:
 
     def __init__(self, info):
         self._info = info
+        self._normalized_keys = {}
+        for original_key, value in self._info.items():
+            self._normalized_keys[self._normalize_key(original_key)] = original_key
 
-    def _normalize_key(self, key: str) -> str:
+    def _normalize_key(self, original_key: str) -> str:
         """Normalize a JSON key for Python attribute access."""
-        return sub(r"[-\s\.]+", "_", key)
+        normalized_key = sub(r"[-\s.]+", "_", original_key)
+        return normalized_key
 
-    def __getattr__(self, name: str):
+    def __getattr__(self, name):
         """Return a value from the underlying JSON data using dot notation."""
-        for key, value in self._info.items():
-            if self._normalize_key(key) == name:
-                return value
-        raise AttributeError(f"{type(self).__name__} has no attribute {name!r}") from None
+        original_key = self._normalized_keys.get(name)
+        if original_key is None:
+            raise AttributeError(f"{type(self).__name__} has no attribute {name!r}") from None
+        return self._info[original_key]
 
     def __setattr__(self, name, value):
         """Set an attribute (_info) or update the underlying JSON data."""
-        if name == "_info":
+        if name in {"_info", "_normalized_keys"}:
             super().__setattr__(name, value)
         else:
-            self._info[name] = value
+            original_key = self._normalized_keys.get(name)
+            if original_key is None:
+                original_key = name
+                self._normalized_keys[name] = original_key
+            self._info[original_key] = value
 
     def to_dict(self):
         """Convert a JsonObject to dictionary."""
