@@ -10,8 +10,6 @@ jobs:
     linting:
       name: static-code-analysis
       runs-on: ["ubuntu-latest"]
-      env:
-        UV_PYTHON: "3.12"
       steps:
         - name: Checkout latest version from GIT
           uses: actions/checkout@v4
@@ -19,8 +17,6 @@ jobs:
           uses: astral-sh/setup-uv@v7
           with:
             enable-cache: true
-        - name: install python
-          run: uv python install ${{env.UV_PYTHON}}
         - name: Install linting dependency
           run: uv sync --only-group lint
         - name: Run Ruff
