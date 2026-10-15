@@ -8,7 +8,7 @@ class JsonObject:
     def __init__(self, info):
         self._info = info
         self._normalized_keys = {}
-        for original_key, value in self._info.items():
+        for original_key, _ in self._info.items():
             self._normalized_keys[self._normalize_key(original_key)] = original_key
 
     def _normalize_key(self, original_key: str) -> str:
