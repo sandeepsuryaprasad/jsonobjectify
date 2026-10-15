@@ -77,18 +77,18 @@ dot notation.
 ```python
 response = """[
   {
-    "name": "Olivia Bennett",
-    "email": "olivia.bennett@example.com",
+    "name": "John Doe",
+    "email": "john.doe@example.com",
     "website": "www.example.dev"
   },
   {
-    "name": "Ethan Parker",
-    "email": "ethan.parker@example.com",
+    "name": "Foo Bar",
+    "email": "foo.bar@example.com",
     "website": "www.example.io"
   },
   {
-    "name": "Sophia Turner",
-    "email": "sophia.turner@example.com",
+    "name": "Baz Qux",
+    "email": "baz.qux@example.com",
     "website": "www.example.edu"
   }
 ]"""
@@ -102,9 +102,9 @@ response = """[
 >>> employees[2]
 <jsonobjectify.jsonobject.JsonObject object at 0x101aa2120>
 >>> employees[0].name
-'Olivia Bennett'
+'John Doe'
 >>> employees[0].email
-'olivia.bennett@example.com'
+'john.doe@example.com'
 >>> employees[0].website
 'www.example.dev'
 >>> 
@@ -115,9 +115,9 @@ element's properties using dot notation.
 >>> for employee in employees:
 ...     print(f"{employee.name}, {employee.email}, {employee.website}")
 ...     
-Olivia Bennett, olivia.bennett@example.com, www.example.dev
-Ethan Parker, ethan.parker@example.com, www.example.io
-Sophia Turner, sophia.turner@example.com, www.example.edu
+John Doe, john.doe@example.com, www.example.dev
+Foo Bar, foo.bar@example.com, www.example.io
+Baz Qux, baz.qux@example.com, www.example.edu
 >>> 
 ```
 
@@ -137,7 +137,7 @@ in the same way
 
 ```console
 >>> employee.name
-'Michael Anderson'
+'John Doe'
 >>> employee.address.city
 'Austin'
 >>> for skill in employee.skills:
@@ -173,9 +173,9 @@ allowing you to access such properties using dot notation.
 
 ```python
 response = """{
-  "first-name": "Olivia",
+  "first-name": "Alice",
   "job title": "Software Engineer",
-  "contact.email": "olivia@example.com"
+  "contact.email": "alice@example.com"
 }"""
 ```
 ```console
@@ -185,11 +185,11 @@ You can access these properties using normalized attribute names,
 
 ```console
 >>> employee.first_name
-'Olivia'
+'Alice'
 >>> employee.job_title
 'Software Engineer'
 >>> employee.contact_email
-'olivia@example.com'
+'alice@example.com'
 ```
 **The original JSON property names are preserved when converting the object back to 
 a dictionary or JSON string.**
