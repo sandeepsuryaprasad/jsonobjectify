@@ -1,5 +1,5 @@
 from json import dumps
-from re import sub, search
+from re import sub
 
 
 class JsonObject:
