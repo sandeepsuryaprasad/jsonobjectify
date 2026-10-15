@@ -4,13 +4,13 @@ build-backend = "uv_build"
 
 [project]
 name = "jsonobjectify"
-version = "0.1.2"
+version = "0.2.0"
 description = "A lightweight Python library for converting JSON data into Python objects, simplifying access to nested structures through intuitive dot notation."
 readme = "README.md"
 requires-python = ">=3.12"
 license = "MIT"
 license-files = ["LICENSE"]
-keywords =["json-parsing", "Attribute lookup", "automated-json-parsing"]
+keywords =["json-parsing", "attribute-lookup", "dot-access"]
 authors = [
     {name= "Sandeep Suryaprasad"}
 ]
