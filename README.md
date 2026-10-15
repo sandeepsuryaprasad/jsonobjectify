@@ -1,6 +1,6 @@
 # jsonobjectify
 
-![Status](https://img.shields.io/badge/status-alpha-orange)
+[![Development Status](https://img.shields.io/pypi/status/jsonobjectify)](https://pypi.org/project/jsonobjectify/)
 [![PyPI version](https://img.shields.io/pypi/v/jsonobjectify?lable=PyPI)](https://pypi.org/project/jsonobjectify/)
 [![Python versions](https://img.shields.io/pypi/pyversions/jsonobjectify?label=Python)](https://pypi.org/project/jsonobjectify/)
 
