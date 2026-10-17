@@ -44,6 +44,7 @@ Here, response is a string containing valid JSON. The `from_string` class method
 the JSON data and creates a `JsonPath` object that allows you to access properties using 
 dot notation.
 ```console
+>>> from jsonobjecctify.jsonpath import JsonPath
 >>> employee = JsonPath.from_string(response)
 ```
 You can now access and traverse nested JSON objects using **dot notation**. 
