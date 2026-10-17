@@ -1,10 +1,10 @@
 # jsonobjectify
 
-[![Development Status](https://img.shields.io/pypi/status/jsonobjectify)](https://pypi.org/project/jsonobjectify/)
-[![PyPI version](https://img.shields.io/pypi/v/jsonobjectify?label=PyPI)](https://pypi.org/project/jsonobjectify/)
-[![Python versions](https://img.shields.io/pypi/pyversions/jsonobjectify?label=Python)](https://pypi.org/project/jsonobjectify/)
+[![Development Status](https://img.shields.io/pypi/status/jsonobjectify?refresh=1)](https://pypi.org/project/jsonobjectify/)
+[![PyPI version](https://img.shields.io/pypi/v/jsonobjectify?label=PyPI&refresh=1)](https://pypi.org/project/jsonobjectify/)
+[![Python versions](https://img.shields.io/pypi/pyversions/jsonobjectify?label=Python&refresh=1)](https://pypi.org/project/jsonobjectify/)
 
-[![CI](https://github.com/sandeepsuryaprasad/jsonobjectify/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/sandeepsuryaprasad/jsonobjectify/actions/workflows/ci.yml)
+[![CI](https://github.com/sandeepsuryaprasad/jsonobjectify/actions/workflows/ci.yml/badge.svg?branch=main&refresh=1)](https://github.com/sandeepsuryaprasad/jsonobjectify/actions/workflows/ci.yml)
 
 A lightweight Python library for converting JSON data into Python objects, 
 simplifying access to nested structures through dot notation. Instead of writing chained 
