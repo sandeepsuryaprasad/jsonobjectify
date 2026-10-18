@@ -101,6 +101,11 @@ response = """[
 ```
 ```console
 >>> employees = JsonPath.from_string(response)
+>>> len(employees)
+3
+```
+#### Indexing each employee
+```console
 >>> employees[0]
 <jsonobjectify.jsonobject.JsonObject object at 0x101bb7d50>
 >>> employees[1]
@@ -115,7 +120,7 @@ response = """[
 'www.example.dev'
 >>> 
 ```
-You can also iterate over JSON arrays using a standard Python for loop and access each 
+Iterating over JSON arrays using a standard Python for loop and access each 
 element's properties using dot notation.
 ```console
 >>> for employee in employees:
@@ -128,7 +133,7 @@ Baz Qux, baz.qux@example.com, www.example.edu
 ```
 
 #### `JsonPath` object from a JSON file
-You can also create a JsonPath object directly from a JSON file using the `from_file`
+Create a JsonPath object directly from a JSON file using the `from_file`
 class method. This allows you to work with JSON data stored in a file without having to 
 read and parse its contents manually.
 
