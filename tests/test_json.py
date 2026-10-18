@@ -55,6 +55,10 @@ def test_response_from_file():
     assert result[1].k3 == "v3"
     assert result[1].k4 == "v4"
 
+def test_from_file_invalid_file():
+    with pytest.raises(FileNotFoundError):
+        JsonPath.from_file("/does/not/exist/demo.json")
+
 def test_json_null():
     response = '{"k1": null}'
     result = JsonPath.from_string(response)
