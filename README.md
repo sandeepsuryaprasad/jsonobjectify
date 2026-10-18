@@ -18,7 +18,7 @@ pip install jsonobjectify
 ```
 
 ## Usage
-Consider the following JSON data representing an employee and their department:
+Consider the following JSON string/response:
 
 ```python
 response = """{
@@ -39,12 +39,9 @@ response = """{
     ]
 }"""
 ```
-#### Create `JsonPath` object
-```console
->>> from jsonobjectify import JsonPath
-```
 #### Construct python object from JSON string/response
 ```console
+>>> from jsonobjectify import JsonPath
 >>> employee = JsonPath.from_string(response)
 ```
 #### Attribute look-up
@@ -77,7 +74,7 @@ C++, Intermediate
 #### Attribute Assignment
 ```console
 >>> employee.name = "Jane Doe"
->>> employee.address.city = "Fortworth"
+>>> employee.address.city = "Fort Worth"
 ```
 #### Root response is an array of JSON objects
 A JSON response can contain an array of objects at the root level. You can use 
