@@ -39,11 +39,11 @@ response = """{
     ]
 }"""
 ```
-Import `JsonPath` from `jsonobjectify`
+#### Create `JsonPath` object
 ```console
 >>> from jsonobjectify import JsonPath
 ```
-Construct python object from JSON string/response
+#### Construct python object from JSON string/response
 ```console
 >>> employee = JsonPath.from_string(response)
 ```
@@ -79,7 +79,7 @@ C++, Intermediate
 >>> employee.name = "Jane Doe"
 >>> employee.address.city = "Fortworth"
 ```
-### Root response is an array of JSON objects
+#### Root response is an array of JSON objects
 A JSON response can contain an array of objects at the root level. You can use 
 `JsonPath.from_string` to parse the response and access each object's properties using 
 dot notation.
@@ -130,7 +130,7 @@ Baz Qux, baz.qux@example.com, www.example.edu
 >>> 
 ```
 
-### Create a `JsonPath` object from a JSON file
+#### `JsonPath` object from a JSON file
 You can also create a JsonPath object directly from a JSON file using the `from_file`
 class method. This allows you to work with JSON data stored in a file without having to 
 read and parse its contents manually.
@@ -157,7 +157,7 @@ C, Advanced
 C++, Intermediate
 ```
 
-### Working with Scalar Values
+#### Working with Scalar Values
 If the **root JSON** value is a scalar, such as a string, number, boolean or null, you can 
 access the underlying value using the `value` property.
 
@@ -175,7 +175,7 @@ True
 >>> json.value
 'hello world'
 ```
-### Accessing JSON Properties with Normalized Keys
+#### Accessing JSON Properties with Normalized Keys
 JSON property names may contain hyphens, spaces, or periods, which cannot be used directly 
 in Python attribute names. jsonobjectify normalizes these characters to underscores, 
 allowing you to access such properties using dot notation.
@@ -203,7 +203,7 @@ You can access these properties using normalized attribute names,
 **The original JSON property names are preserved when converting the object back to 
 a dictionary or JSON string.**
 
-### Converting Objects Back to JSON
+#### Converting Objects Back to JSON
 
 `jsonobjectify` is intended to support conversion back to standard Python dictionaries and 
 JSON strings, making it convenient to work with transformed data.
