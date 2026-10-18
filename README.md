@@ -39,14 +39,15 @@ response = """{
     ]
 }"""
 ```
-### Create `JsonPath` object from JSON string.
-Here, response is a string containing valid JSON. The `from_string` class method parses 
-the JSON data and creates a `JsonPath` object that allows you to access properties using 
-dot notation.
+Import `JsonPath` from `jsonobjectify`
 ```console
 >>> from jsonobjectify import JsonPath
+```
+Construct python object from JSON string/response
+```console
 >>> employee = JsonPath.from_string(response)
 ```
+#### Attribute look-up
 You can now access and traverse nested JSON objects using **dot notation**. 
 For JSON arrays, use the standard Python indexing syntax.
 ```console
@@ -72,6 +73,11 @@ Python, Advanced
 C, Advanced
 C++, Intermediate
 >>> 
+```
+#### Attribute Assignment
+```console
+>>> employee.name = "Jane Doe"
+>>> employee.address.city = "Fortworth"
 ```
 ### Root response is an array of JSON objects
 A JSON response can contain an array of objects at the root level. You can use 
