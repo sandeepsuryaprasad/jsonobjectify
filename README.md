@@ -76,7 +76,7 @@ C++, Intermediate
 >>> employee.name = "Jane Doe"
 >>> employee.address.city = "Fort Worth"
 ```
-#### Root response is an array of JSON objects
+#### Array of JSON objects
 A JSON response can contain an array of objects at the root level. You can use 
 `JsonPath.from_string` to parse the response and access each object's properties using 
 dot notation.
