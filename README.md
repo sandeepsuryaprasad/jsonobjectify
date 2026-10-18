@@ -154,7 +154,7 @@ C, Advanced
 C++, Intermediate
 ```
 
-#### Working with Scalar Values
+### Working with Scalar Values
 If the **root JSON** value is a scalar, such as a string, number, boolean or null, you can 
 access the underlying value using the `value` property.
 
@@ -172,7 +172,7 @@ True
 >>> json.value
 'hello world'
 ```
-#### Accessing JSON Properties with Normalized Keys
+### Accessing JSON Properties with Normalized Keys
 JSON property names may contain hyphens, spaces, or periods, which cannot be used directly 
 in Python attribute names. jsonobjectify normalizes these characters to underscores, 
 allowing you to access such properties using dot notation.
@@ -200,7 +200,7 @@ You can access these properties using normalized attribute names,
 **The original JSON property names are preserved when converting the object back to 
 a dictionary or JSON string.**
 
-#### Converting Objects Back to JSON
+### Converting Objects Back to JSON
 
 `jsonobjectify` is intended to support conversion back to standard Python dictionaries and 
 JSON strings, making it convenient to work with transformed data.
