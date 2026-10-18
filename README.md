@@ -215,6 +215,17 @@ data = employee.to_dict()
 # Serialize the object to a JSON string
 json_data = employee.to_json()
 ```
+### Installed version
+To get to know the version of `jsonobjectify`,
+```console
+>>> import jsonobjectify
+>>> print(jsonobjectify.__version__)
+```
+or
+```console
+>>> from jsonobjectify import __version__
+>>> print(__version__)
+```
 
 ### Requirements
 * Python 3.12 or later
