@@ -1,4 +1,5 @@
 from importlib.metadata import version
+
 from .jsonpath import JsonPath
 
 __version__ = version("jsonobjectify")
