@@ -89,13 +89,15 @@ def test_key_normalization():
         "user-name": "John Doe",
         "first name": "John",
         "city": "Austin",
-        "email.id": "john.doe@example.com"
+        "email.id": "john.doe@example.com",
+        "class": "Business"
     }"""
     result = JsonPath.from_string(response)
     assert result.user_name == "John Doe"
     assert result.first_name == "John"
     assert result.city == "Austin"
     assert result.email_id == "john.doe@example.com"
+    assert result._class == "Business"
 
 def test_missing_attribute():
     result = JsonPath.from_string('{"name": "John"}')

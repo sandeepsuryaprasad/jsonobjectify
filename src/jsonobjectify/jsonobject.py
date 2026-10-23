@@ -1,3 +1,4 @@
+import keyword
 from json import dumps
 from re import sub
 
@@ -67,6 +68,8 @@ class JsonObject:
             'first_last'
         """
         normalized_key = sub(r"[-\s.]+", "_", original_key)
+        if keyword.iskeyword(normalized_key):
+            normalized_key = "_" + normalized_key
         return normalized_key
 
     def __getattr__(self, name):
