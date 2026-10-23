@@ -184,7 +184,8 @@ allowing you to access such properties using dot notation.
 response = """{
   "first-name": "Alice",
   "job title": "Software Engineer",
-  "contact.email": "alice@example.com"
+  "contact.email": "alice@example.com",
+  "class": "Business"
 }"""
 ```
 ```console
@@ -199,6 +200,8 @@ You can access these properties using normalized attribute names,
 'Software Engineer'
 >>> employee.contact_email
 'alice@example.com'
+>>> employee._class
+'Business'
 ```
 **The original JSON property names are preserved when converting the object back to 
 a dictionary or JSON string.**
