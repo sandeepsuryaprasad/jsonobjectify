@@ -221,7 +221,6 @@ json_data = employee.to_json()
 ### Reading response from httpx
 ```python
 >>> from httpx import get
-
 >>> response = get("https://reqres.in/api/users/2")
 >>> result = JsonPath.from_string(response.text)
 >>> print(result)
