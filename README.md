@@ -218,6 +218,52 @@ data = employee.to_dict()
 # Serialize the object to a JSON string
 json_data = employee.to_json()
 ```
+### Reading response from httpx
+```python
+>>> from httpx import get
+
+>>> response = get("https://reqres.in/api/users/2")
+>>> result = JsonPath.from_string(response.text)
+>>> print(result)
+```
+```console
+{
+  "data": {
+    "id": 2,
+    "email": "janet.weaver@reqres.in",
+    "first_name": "Janet",
+    "last_name": "Weaver",
+    "avatar": "https://reqres.in/img/faces/2-image.jpg"
+  },
+  "support": {
+    "url": "https://reqres.in/go/posthog",
+    "text": "PostHog ingests and stores your analytics, errors, replays, and business data so you and your agents can query and act on it. Get started.",
+    "sponsored_by": "PostHog"
+  },
+  "_meta": {
+    "powered_by": "ReqRes",
+    "docs_url": "https://app.reqres.in/documentation",
+    "upgrade_url": "https://app.reqres.in/upgrade",
+    "example_url": "https://app.reqres.in/examples/notes-app",
+    "variant": "key_v1",
+    "message": "You are on the shared demo (no personal key), which has a low daily limit. A free account gives you your own key with 250 requests a day, plus request logs and your own collections.",
+    "cta": {
+      "label": "Get a free key",
+      "url": "https://app.reqres.in/?utm_source=reqres_api&utm_medium=json&utm_campaign=demo_meta_key"
+    },
+    "context": "keyless_success"
+  }
+}
+```
+```console
+>>> result.data.id
+2
+>>> result.data.email
+'janet.weaver@reqres.in'
+>>> result.support.url
+'https://reqres.in/go/posthog'
+```
+
 ### Installed version
 To get to know the version of `jsonobjectify`,
 ```console
