@@ -3,6 +3,7 @@
 [![CI](https://github.com/sandeepsuryaprasad/jsonobjectify/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/sandeepsuryaprasad/jsonobjectify/actions/workflows/ci.yml)
 [![Development Status](https://img.shields.io/pypi/status/jsonobjectify)](https://pypi.org/project/jsonobjectify/)
 [![Python versions](https://img.shields.io/pypi/pyversions/jsonobjectify?label=Python)](https://pypi.org/project/jsonobjectify/)
+[![Total Downloads](https://static.pepy.tech/badge/jsonobjectify)](https://pepy.tech/project/jsonobjectify)
 
 A lightweight Python library for converting JSON data into Python objects, 
 simplifying access to nested structures through dot notation. Instead of writing chained 
